@@ -1,3 +1,4 @@
 # Demonstration-of-Dynamic-Lists
 
-Userinput with lists 
+Dynamic lists with user input.
+Some cool stuff when the program prompts the user to enter their favourite color.
