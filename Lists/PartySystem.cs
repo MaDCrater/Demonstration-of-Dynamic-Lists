@@ -8,6 +8,7 @@ namespace Lists
     class PartySystem
     {
         List<Character> MyTeam;
+        private ConsoleColor Color;
        public PartySystem()
         {
             MyTeam = new List<Character>();
@@ -33,18 +34,25 @@ namespace Lists
                     {
                         WriteLine("What is their level:");
                         int level = Convert.ToInt32(ReadLine());
-                        
                         //TODO : Grab their favourite color and pass it to the Character Class. 
-                       // Then change the console foreground color. 
+                        // Then change the console foreground color. 
                         
-                       
+                        WriteLine("What's their favourite color?");
+                        string colorResponse = ReadLine().Trim();
+                        Color = (ConsoleColor)Enum.Parse(typeof(ConsoleColor), colorResponse, true);
+                        Character newCharacter = new Character(name, level, Color);
+                     
+                        MyTeam.Add(newCharacter);
                         WriteLine("Added!");
                     }
-                    catch 
+                    catch
                     {
+
+
                         WriteLine("Error. Please try again.");
                         Run();
                     }
+                    
                 }
             } while (addResponse == "yes");
 
@@ -52,6 +60,7 @@ namespace Lists
             WriteLine("\n === The Team === ");
             foreach(Character currentCharacter in MyTeam)
             {
+                
                 currentCharacter.DisplayInfo();
             }
 

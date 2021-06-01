@@ -9,19 +9,22 @@ namespace Lists
     {
         private string Name;
         private int Level;
+        private ConsoleColor Color;
         
-        public Character(string charName, int charLevel)
+        public Character(string charName, int charLevel, ConsoleColor myColor)
         {
             Name = charName;
             Level = charLevel;
-           
+            Color = myColor;
         }
 
         public void DisplayInfo()
         {
-
+            ConsoleColor prevColor = ForegroundColor;
+            ForegroundColor = Color;
             WriteLine($" > {Name} < ");
-            WriteLine($"Level : {Level}");   
+            WriteLine($"Level : {Level}");
+            ForegroundColor = prevColor;
         }
     }
 }
