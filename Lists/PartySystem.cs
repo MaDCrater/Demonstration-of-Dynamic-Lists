@@ -40,8 +40,10 @@ namespace Lists
                         WriteLine("What's their favourite color?");
                         string colorResponse = ReadLine().Trim();
                         Color = (ConsoleColor)Enum.Parse(typeof(ConsoleColor), colorResponse, true);
+                        
                         Character newCharacter = new Character(name, level, Color);
-                     
+
+                        WriteLine($"{Color}");
                         MyTeam.Add(newCharacter);
                         WriteLine("Added!");
                     }
